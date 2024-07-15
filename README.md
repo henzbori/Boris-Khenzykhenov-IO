@@ -1,3 +1,4 @@
 # Boris-Khenzykhenov-IO
 
-Boris Khenzykhenov
+portfolio project for Intro to Programming course with Code the Dream
+
