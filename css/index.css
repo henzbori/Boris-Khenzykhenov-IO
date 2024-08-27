@@ -75,7 +75,7 @@ li a:hover {
 @media
 */
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 640px) {
   .container {
     flex-wrap: wrap;
     font-size: 0.7rem;
@@ -83,11 +83,15 @@ li a:hover {
   }
 
   .container .navbar h1 {
-    flex-direction: column;
     font-size: 1rem;
   }
+  .navbar {
+    flex-direction: column;
+  }
+
   .container > li {
     flex: 1 1 50%;
+    margin: 0.8em 0;
   }
   aside #bioPhoto {
     max-width: 20vw;
@@ -199,6 +203,16 @@ Experience
   font-size: medium;
   list-style-type: none;
 }
+
+/* 
+Skills
+*/
+.skillsStyle {
+  list-style-type: none;
+  color:rgba(28, 230, 227, 0.8);
+  padding-left: 1rem;
+}
+
 
 /* 
 Connect
