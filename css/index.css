@@ -5,7 +5,6 @@ body {
   background-size: cover;
   background-blend-mode: lighten;
   font-family: ubuntu, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  margin: 0;
   height: 100vh;
   width: 100%;
 }
@@ -14,9 +13,7 @@ body {
 Navigation bar
  */
  :root {
-  --nav-color: #3e79a675;
-
-}
+  --nav-color: #3e79a6;
 
 *,
 *::before,
@@ -25,108 +22,135 @@ Navigation bar
   margin: 0;
 }
 
- .container {
-  background-color: var(--nav-color);
-  font-size: 1rem;
-  font-family: ubuntu, sans-serif;
+.container {
   width: 100%;
-  padding: auto;
+  background-color: var(--nav-color);
+  padding: 0.5rem;
+  position:sticky;
+  overflow: hidden;
 }
 
 .navbar {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 80%;
-  margin: 0 auto;
+  justify-content: space-around;
 }
 
-.navbar ul {
+nav ul{
   display: flex;
-}
-
-.container .navbar {
-  justify-content: space-between;
-}
-
-.navbar ul li {
-  list-style-type: none;
-}
-
-.container .navbar ul li {
-  padding: 1rem;
-  margin: 0 auto;
+  flex-direction: row;
+  list-style: none;
 }
 
 .navbar a {
   color:antiquewhite;
   font-weight: bold;
-  list-style-type: none;
   text-decoration: none;
 }
 
-li a:hover {
-  color: #cd5a5a;
-  opacity: 80%;
+.navbar li {
+  padding: 1rem 1rem;
+  font-size: large;
 }
 
+.navbar li a:hover {
+  color: #cd5a5a;
+  opacity: 0.8;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement */
+.sticky + .content {
+  padding-top: 60px;
+}
 /* 
 @media
 */
 
-@media screen and (max-width: 640px) {
+@media screen and (min-width:361px) and (max-width: 640px) {
   .container {
-    flex-wrap: wrap;
-    flex-direction: column;
-    font-size: 0.7rem;
     width: 100%;
+    background-color:rgb(39, 23, 55);
   }
 
   .container .navbar h1 {
-    flex-direction: column;
-    font-size: 1rem;
-  }
-  .navbar {
-    flex-direction: row;
+    font-size: medium;
+    color:#56d3dc;
   }
 
-  .container > li {
-    flex: 1 1 50%;
-    margin: 0.8em 0;
+  .navbar {
+    margin: 0.5rem;
+  }
+  .navbar a {
+    color:rgb(195, 151, 151);
+  }
+  .navbar li {
+    font-size: small;
+    padding: 0.5rem;
   }
   aside #bioPhoto {
-    max-width: 20vw;
+    max-width: 25vw;
+  }
+};
+
+@media screen and (max-width: 360px) {
+  .container {
+    width: 100%;
+    background-color:rgb(16, 52, 6);
+  }
+
+  .container .navbar h1 {
+    font-size: medium;
+    color:#d09eaa;
+  }
+
+  .navbar {
+    margin: 0.5rem;
+  }
+  .navbar a {
+    color:rgb(151, 184, 195);
+  }
+  .navbar li {
+    font-size: x-small;
+    padding: 0.5rem 0.2rem;
+  }
+  aside #bioPhoto {
+    max-width: 35vw;
   }
 }
 
 @media screen and (min-width: 1100px) {
   .container {
-    flex-wrap: nowrap;
-    font-size: 1.5rem;
-    background-color: antiquewhite;
     width: 100%;
+    background-color:rgb(0, 0, 0);
   }
-  .container .navbar a {
-    color:rgb(26, 25, 25);
-    font-size: large;
-    padding: 2rem;
-  }
+
   .container .navbar h1 {
-    flex-direction: row;
-    font-size: 2vw;
-    color:brown;
+    font-size: xx-large;
+    color:#e70000;
   }
-  .container > li {
-    flex: 1 1 70%;
+
+  .navbar {
+    margin: 1rem;
+  }
+  .navbar a {
+    color:rgb(255, 234, 0);
+  }
+  .navbar li {
+    font-size: large;
+    padding: 1rem 2rem;
   }
   aside #bioPhoto {
-    max-width: 10vw;
-  }
-  .grid-container > li {
-    padding: 1rem;
-    font: 1em sans-serif;
-    color: beige;
+    max-width: 20vh;
   }
 }
 
@@ -135,24 +159,21 @@ Typography
  */
 
 h1 {
-  color: rgb(124, 187, 187);
+  color: rgb(231, 249, 249);
   font-weight:bolder;
   font-size:xx-large;
-  margin: auto;
-  padding: 0.5em;
 }
 
 h2 {
   color:  rgb(111, 128, 144);
   font-weight:bolder;
   font-size:x-large;
+  margin-bottom: 1rem;
 }
 
 /*
 Layout
  */
-
-
 
 main {
   display: inline-block;
@@ -161,22 +182,22 @@ main {
 }
 
 aside {
-  padding: 1em;
-  margin: 0 auto;
+  padding: 1rem 1rem 0;
+  margin: 4rem auto 0;
   text-align: center;
 }
 
-#about, #experience, #connect,#projects, #skills, #form-message-section, #message-section {
+#about, #experience, #connect, #projects, #skills, #form-message-section, #message-section {
   color: rgba(255, 235, 205, 0.764);
   font-size: large;
   line-height: 1.5;
   margin: 1rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 #bioPhoto {
   display: block;
   max-width: 15vw;
-  margin: 1em;
+  margin: 2em;
   border: solid white 0.5em;
   border-radius: 20% 5%;
 }
@@ -195,7 +216,7 @@ Experience
 
 .grid-container  {
   display: grid;
-  margin: auto;
+  /* margin: auto; */
   grid-gap: 1rem;
   grid-template-columns: repeat(1, minmax(20px, 1fr) );
   grid-template-rows: repeat(5, minmax(10px, 1fr));
@@ -212,10 +233,14 @@ Skills
 .skillsStyle {
   list-style-type: none;
   color:rgba(28, 230, 227, 0.8);
-  padding: 1rem;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start;
 }
 
+.skill-flex-item{
+  padding: 1rem;
+}
 
 /* 
 Connect
@@ -224,54 +249,25 @@ Connect
  .grid-connect {
   display: grid;
   margin: auto;
-  padding: auto;
-  grid-template-columns: repeat(6, minmax(10px, 5rem) );
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(50px, 5rem));
+  grid-template-rows: max-content;
+  justify-content: start;
 }
-
-.grid-connect > a {
-  color:grey;
-  text-decoration: none;
-}
-
-i {
+.grid-connect a {
   margin-top: 1rem;
   letter-spacing: 1rem;
   font-size: 1.5rem;
-  transition: all .2s ease-in-out;
+  transition: all .4s ease-in-out;
 }
-i:hover {
-  transform: scale(1.5);
-}
+.grid-connect a:hover {
+  transform: scale(2);
+} */
 
 .form-message-section {
   color:rgba(28, 230, 227, 0.8);
   padding: 1rem;
 }
 
-.fa-github:hover{
-	color: #333;
-}
-
-.fa-facebook:hover {
-	color: #1877f2;
-}
-
-.fa-instagram:hover {
-	color: #c32aa3;
-}
-
-.fa-twitter:hover {
-	color: #1da1f2;
-}
-
-.fa-linkedin-in:hover {
-	color: #0a66c2;
-}
-
-.fa-youtube:hover {
-	color: #ff0000;
-}
 
 .ubuntu-regular {
   font-family: "Ubuntu", sans-serif;

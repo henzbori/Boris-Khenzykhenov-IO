@@ -1,3 +1,17 @@
+// making navbar sticky
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.scrollY >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
 // creating footer element
 const footerElement = document.createElement("footer");
 const body = document.getElementsByTagName("body");
@@ -12,13 +26,14 @@ copyright.innerHTML = "&copy;" + "Boris Khenzykhenov" + " " + thisYear;
 footer.appendChild(copyright);
 
 // making list of skills
-let skills = ["JavaScript", "HTML", "CSS", "React", "GitHub"];
+let skills = ["JavaScript", "HTML", "CSS", "React", "GitHub", "Node.js", "API"];
 let skillsSection = document.getElementById("skills");
 let skillsList = skillsSection.querySelector("ul");
 for (let i = 0; i < skills.length; i ++) {
     let skill = document.createElement("li");
     skill.innerText = skills[i];
     skillsList.appendChild(skill);
+    skill.className = "skill-flex-item";
 };
 skillsList.className = "skillsStyle";
 
