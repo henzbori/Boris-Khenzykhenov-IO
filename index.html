@@ -72,10 +72,28 @@
                         <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
                         <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-                        <a href="mailto:henzbori@gmail.com"><i class="fab fa-youtube"></i>
+                        <a href="mailto:henzbori@gmail.com"><i class="fab fa-youtube"></i></a>
                     </div>   
             </section>
+            <section id="form-message-section">
+                <h2>Leave a Message</h2>
+                <form name="leave_message" class="form-message">
+                    <label for="usersName">Name:</label><br>
+                    <input type="text" name="usersName" id="usersName" required = true><br>           
+                    <label for="usersEmail">Email:</label><br>
+                    <input type="email" name="usersEmail" id="usersEmail" required = true><br>
+                    <label for="usersMessage">Message:</label><br>
+                    <textarea name="usersMessage" id="usersMessage" placeholder="type your message" required = true></textarea><br>
+                    <button type="submit" value="submit" name="submit" class="button-submit" role="button">Submit</button>
+                </form>
+            </section>
+            <section id="message-section">
+                <h2>Messages</h2>
+                <ul>
+                </ul>
+            </section>
         </main>
+        <!-- footer created through javascript -->
         <script src="js/index.js"></script>
     </body>
 <html>

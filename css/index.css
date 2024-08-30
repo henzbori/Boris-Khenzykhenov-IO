@@ -78,15 +78,17 @@ li a:hover {
 @media screen and (max-width: 640px) {
   .container {
     flex-wrap: wrap;
+    flex-direction: column;
     font-size: 0.7rem;
     width: 100%;
   }
 
   .container .navbar h1 {
+    flex-direction: column;
     font-size: 1rem;
   }
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .container > li {
@@ -164,11 +166,11 @@ aside {
   text-align: center;
 }
 
-#about, #experience, #connect,#projects, #skills {
+#about, #experience, #connect,#projects, #skills, #form-message-section, #message-section {
   color: rgba(255, 235, 205, 0.764);
   font-size: large;
   line-height: 1.5;
-  margin: auto;
+  margin: 1rem;
   padding: 2rem;
 }
 #bioPhoto {
@@ -210,7 +212,8 @@ Skills
 .skillsStyle {
   list-style-type: none;
   color:rgba(28, 230, 227, 0.8);
-  padding-left: 1rem;
+  padding: 1rem;
+
 }
 
 
@@ -239,6 +242,11 @@ i {
 }
 i:hover {
   transform: scale(1.5);
+}
+
+.form-message-section {
+  color:rgba(28, 230, 227, 0.8);
+  padding: 1rem;
 }
 
 .fa-github:hover{
@@ -311,4 +319,107 @@ i:hover {
   font-family: "Ubuntu", sans-serif;
   font-weight: 300;
   font-style: normal;
+}
+
+/* form */
+.form-message > input, textarea {
+  padding: 0.5rem;
+  margin: 1rem;
+}
+
+/* button-submit */
+
+.button-submit {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-submit:hover {
+  background-color: #fff;
+}
+
+.button-submit:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-submit {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+
+/* remove_button */
+.remove_button {
+  display: row;
+  margin-left: 2rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.remove_button:focus {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+/* edit_button */
+.edit_button {
+  display: row;
+  margin-left: 2rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.edit_button:focus {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+/*  new message style */
+.message-entry {
+  list-style-type: none;
+  color:#eb7944b8;
+}
+
+.message-entry > a {
+  text-decoration: none;
+  color:#96ef8cc8; 
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  font-size: larger;
 }
