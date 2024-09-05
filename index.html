@@ -7,7 +7,6 @@
         <meta name="keywords" content="Boris Khenzykhenov, JavaScript, HTML, CSS, DOM, web development, front-end, React, Node.js, back-end"> 
         <meta name="author" content="Boris Khenzykhenov">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/f7187ce1e1.js" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
@@ -16,7 +15,7 @@
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="container" id="navbar">
                 <div class="navbar">
                     <h1>BORIS KHENYKHENOV</h1>
                     <nav>
@@ -67,15 +66,30 @@
             <section id="connect" >
                 <h2>Connect</h2>
                     <div class="grid-connect">
-                        <a href="https://www.linkedin.com/in/boris-khenzykhenov/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/henzbori" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
-                        <a href="http://twitter.com"><i class="fab fa-twitter"></i></a>
-                        <a href="mailto:henzbori@gmail.com"><i class="fab fa-youtube"></i>
+                        <a href="https://github.com/henzbori" target="_blank"><img src="img/github_icon.png" alt="github icon" width="50px"></a>
+                        <a href="https://www.linkedin.com/in/boris-khenzykhenov/" target="_blank"><img src="img/linkedIn_icon.png" alt="linkedIn icon" width="50px"></a>
+                        <a href="mailto:henzbori@gmail.com" target="_blank"><img src="img/gmail_icon.png" alt="gmail icon" width="50px"></a>
                     </div>   
             </section>
+            <section id="form-message-section">
+                <h2>Leave a Message</h2>
+                <form name="leave_message" class="form-message">
+                    <label for="usersName">Name:</label><br>
+                    <input type="text" name="usersName" id="usersName" required = true><br>           
+                    <label for="usersEmail">Email:</label><br>
+                    <input type="email" name="usersEmail" id="usersEmail" required = true><br>
+                    <label for="usersMessage">Message:</label><br>
+                    <textarea name="usersMessage" id="usersMessage" placeholder="type your message" required = true></textarea><br>
+                    <button type="submit" value="submit" name="submit" class="button-submit" role="button">Submit</button>
+                </form>
+            </section>
+            <section id="message-section">
+                <h2>Messages</h2>
+                <ul>
+                </ul>
+            </section>
         </main>
+        <!-- footer created through javascript -->
         <script src="js/index.js"></script>
     </body>
 <html>
