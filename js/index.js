@@ -61,15 +61,15 @@ messageForm.addEventListener("submit", (event) => {
     let formEmail = event.target.usersEmail.value;
     let formMessage = event.target.usersMessage.value;
 
-    console.log("Name:", formName);
-    console.log("Email:", formEmail);
-    console.log("Message:", formMessage);
+    // console.log("Name:", formName);
+    // console.log("Email:", formEmail);
+    // console.log("Message:", formMessage);
     
     let uniqueId = createId();
     let newMessage = document.createElement('li');
     newMessage.classList.add("message-entry");
 
-    newMessage.innerHTML = `<a href="mailto:${formEmail} ">${formName}   </a><span> wrote: ${formMessage} </span>`;
+    newMessage.innerHTML = `<a href="mailto:${formEmail} ">${formName}:   </a><span> ${formMessage} </span>`;
     newMessage.setAttribute('id', uniqueId);
 
     entryById[uniqueId] = { usersName: formName, usersEmail: formEmail, usersMessage: formMessage };
@@ -143,3 +143,42 @@ function createEditButton() {
     });
     return editButton;
 }
+
+// creating fetch for github
+const GITHUB_USERNAME = "henzbori";
+fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch", response.status);
+        }
+        return response.text()
+    })
+    .then(data => {
+        const repositories = JSON.parse(data);
+        // console.log(repositories);
+
+        // DOM Selection to select the projects section by id
+        const projectSection = document.getElementById("projects");
+
+        // DOM Selection to select the element
+        let projectList = projectSection.querySelector("ul");
+        projectList.classList = "projectsListStyle";
+        for (let repo of repositories) {
+            // crete new list item
+            let project = document.createElement("li");
+            // set the name of repo to new list item
+            project.innerHTML = repo.name.toUpperCase().link(repo.html_url);
+            project.className = "projectElement";
+
+            // append project to the list of projects
+            projectList.appendChild(project);
+
+        }
+    })
+    .catch(err => {
+        if (err instanceof SyntaxError) {
+            console.error("Unparsable response from server");
+        } else {
+           console.error("Error fetching data: ", err.message);
+        }
+    });
