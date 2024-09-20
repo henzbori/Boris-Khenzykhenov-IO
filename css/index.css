@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-blend-mode: lighten;
+  background-blend-mode:luminosity;
   font-family: ubuntu, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   height: 100vh;
   width: 100%;
@@ -77,17 +77,18 @@ main {
   display: inline-block;
   padding-left: 5%;
   padding-right: 5%;
-  margin: auto;
+  margin: 2rem;
+  width: 100%;
 }
  
 /* 
-@media
+@media queries
 */
 
 @media screen and (min-width:361px) and (max-width: 640px) {
   main {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
   }
   .container {
     width: 100%;
@@ -116,8 +117,8 @@ main {
 
 @media screen and (max-width: 360px) {
   main {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
   }
 
   .container {
@@ -185,10 +186,11 @@ h1 {
 }
 
 h2 {
-  color:  rgb(111, 128, 144);
-  font-weight:bolder;
-  font-size:x-large;
-  margin-bottom: 1rem;
+  color:  rgb(188, 214, 238);
+  font-weight:500;
+  font-size:xx-large;
+  margin-bottom: 2rem;
+  margin-top: 23%;
 }
 
 /*
@@ -200,13 +202,19 @@ aside {
   margin: 4rem auto 0;
   text-align: center;
 }
-
+#spaceAbovePicture {
+    padding:5%
+}
 #about, #experience, #connect, #projects, #skills, #form-message-section, #message-section {
-  color: rgba(255, 235, 205, 0.764);
+  color: rgb(130, 254, 223);
   font-size: large;
-  line-height: 1.5;
-  margin: 1rem;
+  line-height: 2;
+  margin: 3rem;
   padding: 1rem;
+  margin-bottom: 10%;
+}
+#message-section  h2{
+  margin: 1rem;
 }
 #bioPhoto {
   display: block;
@@ -222,6 +230,17 @@ footer {
   text-align: center;
 }
 
+
+/* 
+About
+ */
+#about {
+  margin-top: 1rem; 
+}
+
+ #about h2 {
+  margin-top: 1rem;
+ }
 /* 
 Experience
 */
@@ -289,11 +308,7 @@ Connect
   transform: scale(1.5);
 }
 
-.form-message-section {
-  color:rgba(28, 230, 227, 0.8);
-  padding: 1rem;
-}
-
+/* Fonts */
 
 .ubuntu-regular {
   font-family: "Ubuntu", sans-serif;
@@ -343,8 +358,12 @@ Connect
   font-style: normal;
 }
 
-/* form */
+/* Message form */
 
+.form-message-section {
+  color:rgba(28, 230, 227, 0.8);
+  padding: 1rem;
+}
 .form-message > input {
   margin-bottom: 1rem;
 }
@@ -450,6 +469,15 @@ Connect
 
 /*  new message style */
 .message-entry {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.message-entry {
   list-style-type: none;
   margin-top: 1rem;
 }
@@ -463,4 +491,8 @@ Connect
   color:#96ef8cc8; 
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: medium;
+}
+
+.edit-form {
+  padding: 2rem;
 }

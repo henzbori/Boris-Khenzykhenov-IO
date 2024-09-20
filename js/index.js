@@ -26,7 +26,7 @@ copyright.innerHTML = "&copy;" + "Boris Khenzykhenov" + " " + thisYear;
 footer.appendChild(copyright);
 
 // making list of skills
-let skills = ["JavaScript", "HTML", "CSS", "React", "GitHub", "Node.js", "API"];
+let skills = ["JavaScript", "HTML", "CSS", "React", "GitHub", "Node.js", "The DOM API", "Fetch API"];
 let skillsSection = document.getElementById("skills");
 let skillsList = skillsSection.querySelector("ul");
 for (let i = 0; i < skills.length; i ++) {
@@ -73,9 +73,9 @@ messageForm.addEventListener("submit", (event) => {
     newMessage.setAttribute('id', uniqueId);
 
     entryById[uniqueId] = { usersName: formName, usersEmail: formEmail, usersMessage: formMessage };
-
-    newMessage.appendChild(createRemoveButton());
+    
     newMessage.appendChild(createEditButton());
+    newMessage.appendChild(createRemoveButton());
     messageList.appendChild(newMessage);
 
     messageForm.reset();
@@ -85,7 +85,7 @@ messageForm.addEventListener("submit", (event) => {
 // remove button in parentNode
 function createRemoveButton() {
     let removeButton = document.createElement('button');
-    removeButton.innerText = "remove";
+    removeButton.innerHTML = '<img src="img/trashbin_logo.png" width="20px" alt="logo of trash bin for delete button" />';
     removeButton.type = "button";
     removeButton.role = "button";
     removeButton.className = "remove_button";
@@ -104,7 +104,7 @@ function createRemoveButton() {
 // edit button in parent node
 function createEditButton() {
     let editButton = document.createElement('button');
-    editButton.innerText = "edit";
+    editButton.innerHTML = '<img src="img/edit_logo.png" width="20px" alt="logo of the edit icon to edit the message" />';
     editButton.type = "button";
     editButton.role = "button";
     editButton.className = "edit_button";
@@ -136,15 +136,15 @@ function createEditButton() {
             newInput.classList.add("message-entry");
             newInput.setAttribute('id', uniqueId);
             newInput.innerHTML = `<a href="mailto:${entryById[uniqueId].usersEmail} ">${entryById[uniqueId].usersName}:   </a><span>  ${entryById[uniqueId].usersMessage} </span>`;
-            newInput.appendChild(createRemoveButton());
             newInput.appendChild(createEditButton());
+            newInput.appendChild(createRemoveButton());
             entry.parentNode.replaceChild(newInput, entry);
         });
     });
     return editButton;
 }
 
-// creating fetch for github
+// fetching repositories from github account
 const GITHUB_USERNAME = "henzbori";
 fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
     .then(response => {
