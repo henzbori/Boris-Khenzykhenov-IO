@@ -23,6 +23,7 @@ let thisYear = today.getFullYear();
 let footer = document.querySelector("footer");
 let copyright = document.createElement("p");
 copyright.innerHTML = "&copy;" + "Boris Khenzykhenov" + " " + thisYear;
+copyright.className = "footerStyle";
 footer.appendChild(copyright);
 
 // making list of skills
@@ -85,7 +86,7 @@ messageForm.addEventListener("submit", (event) => {
 // remove button in parentNode
 function createRemoveButton() {
     let removeButton = document.createElement('button');
-    removeButton.innerHTML = '<img src="img/trashbin_logo.png" width="20px" alt="logo of trash bin for delete button" />';
+    removeButton.innerHTML = '<img src="img/trashbin_logo.png" width="15px" alt="logo of trash bin for delete button" />';
     removeButton.type = "button";
     removeButton.role = "button";
     removeButton.className = "remove_button";
@@ -162,17 +163,18 @@ fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
 
         // DOM Selection to select the element
         let projectList = projectSection.querySelector("ul");
+        
         projectList.classList = "projectsListStyle";
         for (let repo of repositories) {
             // crete new list item
             let project = document.createElement("li");
             // set the name of repo to new list item
             project.innerHTML = repo.name.toUpperCase().link(repo.html_url);
+            
             project.className = "projectElement";
 
             // append project to the list of projects
             projectList.appendChild(project);
-
         }
     })
     .catch(err => {

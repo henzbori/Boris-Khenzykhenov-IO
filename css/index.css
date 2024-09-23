@@ -190,7 +190,7 @@ h2 {
   font-weight:500;
   font-size:xx-large;
   margin-bottom: 2rem;
-  margin-top: 23%;
+  margin-top: 20%;
 }
 
 /*
@@ -200,6 +200,7 @@ Layout
 aside {
   padding: 1rem 1rem 0;
   margin: 4rem auto 0;
+  margin-left: 10%;
   text-align: center;
 }
 #spaceAbovePicture {
@@ -211,7 +212,8 @@ aside {
   line-height: 2;
   margin: 3rem;
   padding: 1rem;
-  margin-bottom: 10%;
+  margin-bottom: 15%;
+  margin-left: 10%;
 }
 #message-section  h2{
   margin: 1rem;
@@ -226,10 +228,14 @@ aside {
 
 footer {
   color: rgb(32, 186, 171);
-  position: relative;
-  text-align: center;
+  width: 100vw;
 }
 
+p.footerStyle {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
 
 /* 
 About
@@ -367,6 +373,9 @@ Connect
 .form-message > input {
   margin-bottom: 1rem;
 }
+.form-message label {
+  display: block;
+}
 
 #usersName, #usersEmail {
   width: 12rem;
@@ -475,6 +484,9 @@ Connect
   align-content: center;
   justify-content: flex-start;
   align-items: center;
+}
+.message-entry label {
+  display: block;
 }
 
 .message-entry {
