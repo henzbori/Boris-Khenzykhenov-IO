@@ -23,10 +23,11 @@ let thisYear = today.getFullYear();
 let footer = document.querySelector("footer");
 let copyright = document.createElement("p");
 copyright.innerHTML = "&copy;" + "Boris Khenzykhenov" + " " + thisYear;
+copyright.className = "footerStyle";
 footer.appendChild(copyright);
 
 // making list of skills
-let skills = ["JavaScript", "HTML", "CSS", "React", "GitHub", "Node.js", "API"];
+let skills = ["JavaScript", "HTML", "CSS", "React", "GitHub", "Node.js", "The DOM API", "Fetch API"];
 let skillsSection = document.getElementById("skills");
 let skillsList = skillsSection.querySelector("ul");
 for (let i = 0; i < skills.length; i ++) {
@@ -61,21 +62,21 @@ messageForm.addEventListener("submit", (event) => {
     let formEmail = event.target.usersEmail.value;
     let formMessage = event.target.usersMessage.value;
 
-    console.log("Name:", formName);
-    console.log("Email:", formEmail);
-    console.log("Message:", formMessage);
+    // console.log("Name:", formName);
+    // console.log("Email:", formEmail);
+    // console.log("Message:", formMessage);
     
     let uniqueId = createId();
     let newMessage = document.createElement('li');
     newMessage.classList.add("message-entry");
 
-    newMessage.innerHTML = `<a href="mailto:${formEmail} ">${formName}   </a><span> wrote: ${formMessage} </span>`;
+    newMessage.innerHTML = `<a href="mailto:${formEmail} ">${formName}:   </a><span> ${formMessage} </span>`;
     newMessage.setAttribute('id', uniqueId);
 
     entryById[uniqueId] = { usersName: formName, usersEmail: formEmail, usersMessage: formMessage };
-
-    newMessage.appendChild(createRemoveButton());
+    
     newMessage.appendChild(createEditButton());
+    newMessage.appendChild(createRemoveButton());
     messageList.appendChild(newMessage);
 
     messageForm.reset();
@@ -85,7 +86,7 @@ messageForm.addEventListener("submit", (event) => {
 // remove button in parentNode
 function createRemoveButton() {
     let removeButton = document.createElement('button');
-    removeButton.innerText = "remove";
+    removeButton.innerHTML = '<img src="img/trashbin_logo.png" width="15px" alt="logo of trash bin for delete button" />';
     removeButton.type = "button";
     removeButton.role = "button";
     removeButton.className = "remove_button";
@@ -104,7 +105,7 @@ function createRemoveButton() {
 // edit button in parent node
 function createEditButton() {
     let editButton = document.createElement('button');
-    editButton.innerText = "edit";
+    editButton.innerHTML = '<img src="img/edit_logo.png" width="20px" alt="logo of the edit icon to edit the message" />';
     editButton.type = "button";
     editButton.role = "button";
     editButton.className = "edit_button";
@@ -136,10 +137,50 @@ function createEditButton() {
             newInput.classList.add("message-entry");
             newInput.setAttribute('id', uniqueId);
             newInput.innerHTML = `<a href="mailto:${entryById[uniqueId].usersEmail} ">${entryById[uniqueId].usersName}:   </a><span>  ${entryById[uniqueId].usersMessage} </span>`;
-            newInput.appendChild(createRemoveButton());
             newInput.appendChild(createEditButton());
+            newInput.appendChild(createRemoveButton());
             entry.parentNode.replaceChild(newInput, entry);
         });
     });
     return editButton;
 }
+
+// fetching repositories from github account
+const GITHUB_USERNAME = "henzbori";
+fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch", response.status);
+        }
+        return response.text()
+    })
+    .then(data => {
+        const repositories = JSON.parse(data);
+        // console.log(repositories);
+
+        // DOM Selection to select the projects section by id
+        const projectSection = document.getElementById("projects");
+
+        // DOM Selection to select the element
+        let projectList = projectSection.querySelector("ul");
+        
+        projectList.classList = "projectsListStyle";
+        for (let repo of repositories) {
+            // crete new list item
+            let project = document.createElement("li");
+            // set the name of repo to new list item
+            project.innerHTML = repo.name.toUpperCase().link(repo.html_url);
+            
+            project.className = "projectElement";
+
+            // append project to the list of projects
+            projectList.appendChild(project);
+        }
+    })
+    .catch(err => {
+        if (err instanceof SyntaxError) {
+            console.error("Unparsable response from server");
+        } else {
+           console.error("Error fetching data: ", err.message);
+        }
+    });

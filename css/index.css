@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-blend-mode: lighten;
+  background-blend-mode:luminosity;
   font-family: ubuntu, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   height: 100vh;
   width: 100%;
@@ -14,7 +14,7 @@ Navigation bar
  */
  :root {
   --nav-color: #3e79a6;
-
+}
 *,
 *::before,
 *::after {
@@ -72,11 +72,24 @@ nav ul{
 .sticky + .content {
   padding-top: 60px;
 }
+
+main {
+  display: inline-block;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 2rem;
+  width: 100%;
+}
+ 
 /* 
-@media
+@media queries
 */
 
 @media screen and (min-width:361px) and (max-width: 640px) {
+  main {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
   .container {
     width: 100%;
     background-color:rgb(39, 23, 55);
@@ -100,9 +113,14 @@ nav ul{
   aside #bioPhoto {
     max-width: 25vw;
   }
-};
+}
 
 @media screen and (max-width: 360px) {
+  main {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
   .container {
     width: 100%;
     background-color:rgb(16, 52, 6);
@@ -129,6 +147,9 @@ nav ul{
 }
 
 @media screen and (min-width: 1100px) {
+  main {
+    padding-left: 8%;
+  }
   .container {
     width: 100%;
     background-color:rgb(0, 0, 0);
@@ -165,34 +186,37 @@ h1 {
 }
 
 h2 {
-  color:  rgb(111, 128, 144);
-  font-weight:bolder;
-  font-size:x-large;
-  margin-bottom: 1rem;
+  color:  rgb(188, 214, 238);
+  font-weight:500;
+  font-size:xx-large;
+  margin-bottom: 2rem;
+  margin-top: 20%;
 }
 
 /*
 Layout
  */
 
-main {
-  display: inline-block;
-  padding: auto;
-  margin: auto;
-}
-
 aside {
   padding: 1rem 1rem 0;
   margin: 4rem auto 0;
+  margin-left: 10%;
   text-align: center;
 }
-
+#spaceAbovePicture {
+    padding:5%
+}
 #about, #experience, #connect, #projects, #skills, #form-message-section, #message-section {
-  color: rgba(255, 235, 205, 0.764);
+  color: rgb(130, 254, 223);
   font-size: large;
-  line-height: 1.5;
-  margin: 1rem;
+  line-height: 2;
+  margin: 3rem;
   padding: 1rem;
+  margin-bottom: 15%;
+  margin-left: 10%;
+}
+#message-section  h2{
+  margin: 1rem;
 }
 #bioPhoto {
   display: block;
@@ -203,20 +227,32 @@ aside {
 }
 
 footer {
-  color: rgba(32, 186, 171, 0.559);
-  position: fixed; 
-  bottom: 0; 
-  right: 0; 
-  z-index: 1;
+  color: rgb(32, 186, 171);
+  width: 100vw;
 }
 
+p.footerStyle {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+/* 
+About
+ */
+#about {
+  margin-top: 1rem; 
+}
+
+ #about h2 {
+  margin-top: 1rem;
+ }
 /* 
 Experience
 */
 
 .grid-container  {
   display: grid;
-  /* margin: auto; */
   grid-gap: 1rem;
   grid-template-columns: repeat(1, minmax(20px, 1fr) );
   grid-template-rows: repeat(5, minmax(10px, 1fr));
@@ -242,6 +278,21 @@ Skills
   padding: 1rem;
 }
 
+/* Projects list  */
+
+.projectsListStyle {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.projectElement > a{
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: rgb(109, 208, 175);
+  font-size: medium;
+}
+
 /* 
 Connect
  */
@@ -260,14 +311,10 @@ Connect
   transition: all .4s ease-in-out;
 }
 .grid-connect a:hover {
-  transform: scale(2);
-} */
-
-.form-message-section {
-  color:rgba(28, 230, 227, 0.8);
-  padding: 1rem;
+  transform: scale(1.5);
 }
 
+/* Fonts */
 
 .ubuntu-regular {
   font-family: "Ubuntu", sans-serif;
@@ -317,26 +364,47 @@ Connect
   font-style: normal;
 }
 
-/* form */
-.form-message > input, textarea {
-  padding: 0.5rem;
-  margin: 1rem;
+/* Message form */
+
+.form-message-section {
+  color:rgba(28, 230, 227, 0.8);
+  padding: 1rem;
+}
+.form-message > input {
+  margin-bottom: 1rem;
+}
+.form-message label {
+  display: block;
 }
 
+#usersName, #usersEmail {
+  width: 12rem;
+  height: 1.5rem;
+  font-size: medium;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+ #usersMessage {
+  width: 14rem;
+  height: 3rem;
+  font-size: medium;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 /* button-submit */
 
 .button-submit {
+  margin-top: 1rem;
   background-color: #fbeee0;
   border: 2px solid #422800;
-  border-radius: 30px;
+  border-radius: 20px;
   box-shadow: #422800 4px 4px 0 0;
   color: #422800;
   cursor: pointer;
   display: inline-block;
   font-weight: 600;
-  font-size: 18px;
-  padding: 0 18px;
-  line-height: 50px;
+  font-size: 14px;
+  padding: 0 12px;
+  line-height: 40px;
   text-align: center;
   text-decoration: none;
   user-select: none;
@@ -345,7 +413,7 @@ Connect
 }
 
 .button-submit:hover {
-  background-color: #fff;
+  background-color: #6dffae;
 }
 
 .button-submit:active {
@@ -364,14 +432,14 @@ Connect
 /* remove_button */
 .remove_button {
   display: row;
-  margin-left: 2rem;
+  margin-left: 1rem;
   flex-direction: column;
   align-items: center;
-  padding: 6px 14px;
+  padding: 3px 12px;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  border-radius: 6px;
-  color: #3D3D3D;
-  background: #fff;
+  border-radius: 12px;
+  color: #000000;
+  background: #f3b6b6;
   border: none;
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
   user-select: none;
@@ -380,21 +448,21 @@ Connect
 }
 
 .remove_button:focus {
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(171, 197, 255, 0.5);
   outline: 0;
 }
 
 /* edit_button */
 .edit_button {
   display: row;
-  margin-left: 2rem;
+  margin-left: 1rem;
   flex-direction: column;
   align-items: center;
-  padding: 6px 14px;
+  padding: 3px 12px;
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  border-radius: 6px;
-  color: #3D3D3D;
-  background: #fff;
+  border-radius: 12px;
+  color: #000000;
+  background: #bbf8ea;
   border: none;
   box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
   user-select: none;
@@ -403,19 +471,40 @@ Connect
 }
 
 .edit_button:focus {
-  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(171, 197, 255, 0.5);
   outline: 0;
 }
+
+
 /*  new message style */
 .message-entry {
-  list-style-type: none;
-  color:#eb7944b8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+.message-entry label {
+  display: block;
 }
 
-.message-entry > a {
+.message-entry {
+  list-style-type: none;
+  margin-top: 1rem;
+}
+
+.message-entry a {
   text-decoration: none;
+  color:#ff631a;
+}
+
+.message-entry {
   color:#96ef8cc8; 
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: 700;
-  font-size: larger;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: medium;
+}
+
+.edit-form {
+  padding: 2rem;
 }
